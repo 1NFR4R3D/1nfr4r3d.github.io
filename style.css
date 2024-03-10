@@ -1,0 +1,66 @@
+/* background, text, link colours */
+body {
+    background-color: black;
+    color: yellow;
+}
+
+a:link { /* unvisited link */
+    color: green;
+}
+
+a:visited { /* visited link */
+    color: red;
+}
+
+/* General styles */
+.sect_div {
+    width: 95%;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+.main_nav {
+    font-size: large;
+}
+
+.main_nav_link {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.blog_nav {
+    font-style: medium;
+}
+
+.blog_nav_prev {
+    float: inline-start;
+    position: relative;
+    left: 15%
+}
+
+.blog_nav_next {
+    float: inline-end;
+    position: relative;
+    right: 15%
+}
+
+/* Footer styles */
+footer {
+    font-size: x-small;
+    text-align: center;
+}
+
+/* Main content styles */
+main {
+    font-size: medium;
+    width: 90%;
+    position: relative;
+    left: 5%;
+}
