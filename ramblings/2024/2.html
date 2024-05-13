@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.1nfr4.red/style.css">
+        <link rel="stylesheet" href="../../style.css">
+        <title>Hello (again), world! - 1nfr4.red</title>
+    </head>
+
+    <body>
+
+    <!-- header -->
+    <header>
+
+        <h1>
+            <a href="https://blog.1nfr4.red/">1nfr4.red</a>
+        </h1>
+        
+        <!-- Links to other pages -->
+        <nav class="main_nav">
+            <a class="main_nav_link" href="https://blog.1nfr4.red/">Home</a>
+            <a class="main_nav_link" href="https://blog.1nfr4.red/ramblings/">Ramblings</a>
+        </nav>
+        <hr class="sect_div">
+
+        <!-- Links to previous/next blogs -->
+        <nav class="blog_nav">
+            <div class="blog_nav_prev"><a href="1.html">Previous</a></div>
+            <div class="blog_nav_next"><a href="../index.html">Next</a></div>
+        </nav>
+        <hr class="sect_div">
+    </header>
+       
+    <!-- Actual content -->
+    <main>
+        <h3>Quiet down, Tenma! </h3>
+        <h4>Dealing with the buzzings of the cooling fans in the Tenma 72-10505 benchtop power supply</h4>
+        <p>So I bought a Tenma 72-10505 benchtop supply off of ebay, and I've been using it for a while now. It has its quirks, but it is a decent benchtop supply, for not a lot of money.</p>
+        <p>One of its quirks is something that bothers me - its idea of fan speed control is similar to what most of us do to control LED brightness. Yep, it uses PWM to control the fan speed. By switching the supply to the fan instead of using a DC-controlled fan, or a fancy PWM-controlled fan. And how do I know this? Well, I found <a href="https://www.eevblog.com/forum/testgear/tenma-72-10500-dual-bench-power-supply-teardown-pictures-fan-mods/">this post</a> on the EEVBlog forums. And I am going to suggest exactly what they suggested - slapping a capacitor across the fan.</p>
+        <p>Opening the box up and getting rid of the metal... beams? bars? across the top, the insides seem easy to work on.</p>
+        <div class="image"><img src="media/02-010-tenma-whole-insides-1.jpg" /></div>
+        <p>Lets see where the fan goes... <a href="https://www.youtube.com/watch?v=djV11Xbc914">Aha!</a> J5! (Sorry about that light from my screen. If it helps save my bacon, I did this while procrastinating on my assignment.)</p>
+        <div class="image"><img src="media/02-030-tenma-fp-nofix.jpg" /></div>
+        <p>It seems thar the big resistors above the connector are in series with the fan, one connected to the positive supply pin of the fan, and the other to the return line/ground/whatever you want to call it. You know I just got a <s>new</s> scope! Let's see what it looks like (Although if you've seen the EEVBlog forum post, you know exactly what it looks like. On a scope of a similar vintage to mine, in fact!)</p>
+        <div class="image"><img src="media/02-040-tenma-fantrace-nofix.jpg" /></div>
+        <p>That's not very nice... And that explains the noise (though we already knew that). And yeah, I need to work on the scope. It doesn't like to trigger very consistently. I promise I'll get to it!</p>
+        <p>But let's focus on the Tenma for now. Adding a big, fat 100µF capacitor, like what the forum post suggested, shouldn't be too hard once I pull a board out (Guess who forgot to take photos of the backside of the board!). And with a little dab of solder, and capacitors freshly harvested from one of the University EEE labs...</p>
+        <div class="image"><img src="media/02-050-tenma-fp-fix.jpg" /></div>
+        <p>Perfect! Now let's see what happens to the waveforms with that capacitor.</p>
+        <div class="image"><img src="media/02-060-tenma-fantrace-fix-idle.jpg" /></div>
+        <p>Looks much better! And even before looking at the scope, I can definitely say that it <i>sounds</i> much better! Now let's try putting some load on the supply. Let's just look at it in steps of 1A.</p>
+        <p>With the supply set to a current limit of 1A and shorting the output leads...</p>
+        <div class="image"><img src="media/02-070-tenma-fantrace-fix-1a.jpg" /></div>
+        <p>Not bad!</p>
+        <p>Now how about 2A?</p>
+        <div class="image"><img src="media/02-080-tenma-fantrace-fix-2a.jpg" /></div>
+        <p>And at the full load of 3A?</p>
+        <div class="image"><img src="media/02-090-tenma-fantrace-fix-3a.jpg" /></div>
+        <p>I can live with this! This is definitely not perfect. It would be much better if the designers had used proper DC control, or PWM controlled fans. But if they had done that, I'd not be writing this. So... thanks for cheaping out on your fan speed control circuit, Korad, wearing a Tenma trenchcoat!</p>
+        <p>If you have this same supply, or any other Korad KA300xD-xS supply, and have somehow reached this place without going to <a href="https://www.eevblog.com/forum/beginners/bench-power-supplies-77591/25/">this EEVBlog forum post,</a> now might be a good time to go through it.</p>
+        <p>Until next time!</p>
+    </main>
+
+    <!-- "Footer" -->
+    <footer>
+        <hr class="sect_div">
+        <p>This vintage-inspired site is written in HTML with minimal active content, inspired by <a href="https://bigclive.com/">bigclive.com</a>.</p>
+        <p xmlns:cc="https://creativecommons.org/ns#" >Licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> 
+        <hr class="sect_div">
+    </footer>
+    </body>
+</html>
