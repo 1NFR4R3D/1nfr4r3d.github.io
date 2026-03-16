@@ -9,12 +9,22 @@ a:link { /* unvisited link */
 }
 
 a:visited { /* visited link */
-    color: red;
+    color: darkgreen;
+}
+
+a:hover { /* mouse over link */
+    color: lightgreen;
+}
+
+a:active { /* active link */
+    color: yellow;
 }
 
 /* General styles */
 .sect_div {
     width: 95%;
+    margin: 0 auto;
+    clear: both;
 }
 
 /* Header styles */
@@ -36,19 +46,10 @@ h1 {
 }
 
 .blog_nav {
-    font-style: medium;
-}
-
-.blog_nav_prev {
-    float: inline-start;
-    position: relative;
-    left: 15%
-}
-
-.blog_nav_next {
-    float: inline-end;
-    position: relative;
-    right: 15%
+    font-size: medium;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
 }
 
 /* Footer styles */
@@ -67,7 +68,8 @@ main {
 
 /* Default image size (and dynamic resizing) */
 img {
-    text-align: center;
+    display: block;
+    margin: 0 auto;
     max-width: 75%;
     height: auto;
 }
