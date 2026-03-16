@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +36,14 @@
     <!-- Actual content -->
     <main>
         <h3>Taming the fans of the Tenma 72-10505</h3>
-        <h4>Dealing with the buzzings of the cooling fans in the Tenma 72-10505 benchtop power supply</h4>
+        <h4>Dealing with the buzzing of the cooling fans in the Tenma 72-10505 benchtop power supply</h4>
         <p>So I bought a Tenma 72-10505 benchtop supply off of ebay, and I've been using it for a while now. It has its quirks, but it is a decent benchtop supply, for not a lot of money.</p>
         <p>One of its quirks is something that bothers me - its idea of fan speed control is similar to what most of us do to control LED brightness. Yep, it uses PWM to control the fan speed. By switching the supply to the fan instead of using a DC-controlled fan, or a fancy PWM-controlled fan. And how do I know this? Well, I found <a href="https://www.eevwww.com/forum/testgear/tenma-72-10500-dual-bench-power-supply-teardown-pictures-fan-mods/">this post</a> on the EEVBlog forums. And I am going to suggest exactly what they suggested - slapping a capacitor across the fan.</p>
         <p>Opening the box up and getting rid of the metal... beams? bars? across the top, the insides seem easy to work on.</p>
         <div class="image"><img src="media/02-010-tenma-whole-insides-1.jpg" /></div>
         <p>Lets see where the fan goes... <a href="https://www.youtube.com/watch?v=djV11Xbc914">Aha!</a> J5! (Sorry about that light from my screen. If it helps save my bacon, I did this while procrastinating on my assignment.)</p>
         <div class="image"><img src="media/02-030-tenma-fp-nofix.jpg" /></div>
-        <p>It seems thar the big resistors above the connector are in series with the fan, one connected to the positive supply pin of the fan, and the other to the return line/ground/whatever you want to call it. You know I just got a <s>new</s> scope! Let's see what it looks like (Although if you've seen the EEVBlog forum post, you know exactly what it looks like. On a scope of a similar vintage to mine, in fact!)</p>
+        <p>It seems thar the big resistors above the connector are in series with the fan: one connected to the positive supply pin of the fan, and the other to the return line/ground/whatever you want to call it. You know I just got a <s>new</s> scope! Let's see what it looks like (Although if you've seen the EEVBlog forum post, you know exactly what it looks like. On a scope of a similar vintage to mine, in fact!)</p>
         <div class="image"><img src="media/02-040-tenma-fantrace-nofix.jpg" /></div>
         <p>That's not very nice... And that explains the noise (though we already knew that). And yeah, I need to work on the scope. It doesn't like to trigger very consistently. I promise I'll get to it!</p>
         <p>But let's focus on the Tenma for now. Adding a big, fat 100µF capacitor, like what the forum post suggested, shouldn't be too hard once I pull a board out (Guess who forgot to take photos of the backside of the board!). And with a little dab of solder, and capacitors freshly harvested from one of the University EEE labs...</p>
@@ -67,7 +67,7 @@
     <footer>
         <hr class="sect_div">
         <p>This vintage-inspired site is written in HTML with minimal active content, inspired by <a href="https://bigclive.com/">bigclive.com</a>.</p>
-        <p xmlns:cc="https://creativecommons.org/ns#" >Licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p> 
+        <p xmlns:cc="https://creativecommons.org/ns#" >Licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons Icon"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="Creative Commons Attribution Icon"></a></p>
         <hr class="sect_div">
     </footer>
     </body>
